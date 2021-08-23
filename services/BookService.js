@@ -20,6 +20,7 @@ const BOOKS_KEY = 'booksDB';
 const gBooks = [
   {
     "id" : "OXeMG8wNskc",
+    "reviews" : [],
       "title": "metus hendrerit",
       "subtitle": "mi est eros convallis auctor arcu dapibus himenaeos",
       "authors": [
@@ -42,6 +43,7 @@ const gBooks = [
     },
     {
       "id" : "JYOJa2NpSCq",
+      "reviews" : [],
       "title": "morbi",
       "subtitle": "lorem euismod dictumst inceptos mi",
       "authors": [
@@ -64,6 +66,7 @@ const gBooks = [
     },
     {
       "id" : "1y0Oqts35DQ",
+      "reviews" : [],
       "title": "at viverra venenatis",
       "subtitle": "gravida libero facilisis rhoncus urna etiam",
       "authors": [
@@ -86,6 +89,7 @@ const gBooks = [
     },
     {
       "id" : "kSnfIJyikTP",
+      "reviews" : [],
       "title": "dictum",
       "subtitle": "augue eu consectetur class curabitur conubia ligula in ullamcorper",
       "authors": [
@@ -108,6 +112,7 @@ const gBooks = [
     },
     {
       "id" : "f4iuVmbuKCC",
+      "reviews" : [],
       "title": "sem himenaeos aptent",
       "subtitle": "interdum per habitasse luctus purus est",
       "authors": [
@@ -130,6 +135,7 @@ const gBooks = [
     },
     {
       "id" : "U2rfZO6oBZf",
+      "reviews" : [],
       "title": "mi ante posuere",
       "subtitle": "sapien curae consectetur ultrices fringilla blandit ipsum curae faucibus",
       "authors": [
@@ -152,6 +158,7 @@ const gBooks = [
     },
     {
       "id" : "xI0wrXaaAcq",
+      "reviews" : [],
       "title": "non",
       "subtitle": "leo tortor per dapibus mattis ut conubia porttitor ligula viverra",
       "authors": [
@@ -174,6 +181,7 @@ const gBooks = [
     },
     {
       "id" : "9laHCEdSpFy",
+      "reviews" : [],
       "title": "tristique",
       "subtitle": "consectetur a eu tincidunt condimentum amet nisi",
       "authors": [
@@ -196,6 +204,7 @@ const gBooks = [
     },
     {
       "id" : "nGhVwZvGCGp",
+      "reviews" : [],
       "title": "urna ornare gravida",
       "subtitle": "sem vestibulum semper convallis pharetra tempor himenaeos ut",
       "authors": [
@@ -218,6 +227,7 @@ const gBooks = [
     },
     {
       "id" : "Q8Q9Lsd03BD",
+      "reviews" : [],
       "title": "consequat neque volutpat",
       "subtitle": "vel quis taciti fermentum feugiat ullamcorper curae praesent",
       "authors": [
@@ -240,6 +250,7 @@ const gBooks = [
     },
     {
       "id" : "bd7a76kARao",
+      "reviews" : [],
       "title": "risus",
       "subtitle": "pretium bibendum pharetra curabitur quisque dictumst",
       "authors": [
@@ -262,6 +273,7 @@ const gBooks = [
     },
     {
       "id" : "qKyG0vqeO3e",
+      "reviews" : [],
       "title": "interdum etiam vulputate",
       "subtitle": "velit sapien eget tincidunt nunc tortor",
       "authors": [
@@ -284,6 +296,7 @@ const gBooks = [
     },
     {
       "id" : "2RvT48ZNInj",
+      "reviews" : [],
       "title": "sagittis justo",
       "subtitle": "etiam primis proin praesent placerat nisi fermentum nisi",
       "authors": [
@@ -306,6 +319,7 @@ const gBooks = [
     },
     {
       "id" : "5z2s9pDXAYj",
+      "reviews" : [],
       "title": "quam ullamcorper himenaeos",
       "subtitle": "ut placerat eu dapibus sapien sodales laoreet",
       "authors": [
@@ -328,6 +342,7 @@ const gBooks = [
     },
     {
       "id" : "zBZu5cDEWha",
+      "reviews" : [],
       "title": "quis",
       "subtitle": "suscipit turpis etiam turpis libero lobortis",
       "authors": [
@@ -350,6 +365,7 @@ const gBooks = [
     },
     {
       "id" : "aOI7tQuPZ2f",
+      "reviews" : [],
       "title": "aliquam aliquet dapibus",
       "subtitle": "neque eu purus euismod placerat adipiscing odio egestas consequat",
       "authors": [
@@ -372,6 +388,7 @@ const gBooks = [
     },
     {
       "id" : "WBooB82Uvwu",
+      "reviews" : [],
       "title": "class",
       "subtitle": "elit enim ultricies amet imperdiet a molestie class elementum venenatis",
       "authors": [
@@ -394,6 +411,7 @@ const gBooks = [
     },
     {
       "id" : "xm1z5bbZjlS",
+      "reviews" : [],
       "title": "vitae",
       "subtitle": "class habitant at commodo semper ligula a bibendum",
       "authors": [
@@ -416,6 +434,7 @@ const gBooks = [
     },
     {
       "id" : "u3j6QIKLlJb",
+      "reviews" : [],
       "title": "rhoncus vivamus",
       "subtitle": "nullam class risus amet senectus scelerisque etiam curabitur",
       "authors": [
@@ -438,6 +457,7 @@ const gBooks = [
     },
     {
       "id" : "vxYYYdVlEH3",
+      "reviews" : [],
       "title": "donec mi ullamcorper",
       "subtitle": "varius malesuada augue molestie sollicitudin faucibus mi eu tempus",
       "authors": [

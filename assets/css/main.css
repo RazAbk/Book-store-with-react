@@ -5,8 +5,20 @@ margin: 0;
 font-family: dosis;
 }
 
+html{
+
+}
+
 body{
-    background-color: rgb(73, 73, 73);
+
+}
+
+#root{
+
+}
+
+main{
+    min-height: 100vh;
 }
 
 a{
@@ -164,7 +176,8 @@ main{
 
 
     color: white;
-    height: calc(55vh - 6rem);
+    /* height: calc(55vh - 6rem); */
+    max-height: 400px;
 }
 
 .more-details{
@@ -172,8 +185,14 @@ main{
     flex-direction: column;
     justify-content: space-between;
 
+    
     width: 100%;
     min-width: 350px;
+    max-height: 400px;
+}
+
+.image{
+    max-width: 300px;
 }
 
 .image img{
@@ -189,19 +208,19 @@ main{
 }
 
 .details-1{
-    padding: 0 2rem;
+    padding: 0 1rem;
 }
 
 .details-1>*{
-    padding: 0 0.8rem 0.8rem 0.8rem;
+    padding: 0 0.6rem 0.6rem 0.6rem;
 }
 
 .details-1 h2{
-    font-size: 3rem;
+    font-size: 2rem;
 }
 
 .details-1 h3{
-    font-size: 1.5rem;
+    font-size: 1.2rem;
 }
 
 .details-1 h4{
@@ -229,8 +248,8 @@ main{
     background-color: #fff;
     border-radius: 20px;
     border: none;
-    padding: 1.2rem;
-    font-size: 1.5rem;
+    padding: 0.7rem;
+    font-size: 1.2rem;
 
     transition: 0.3s;
     cursor: pointer;
