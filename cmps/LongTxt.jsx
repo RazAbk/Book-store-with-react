@@ -11,10 +11,11 @@ export class LongTxt extends React.Component{
     render(){
 
         const txt = this.props.txt
+        const max = this.props.max
 
         return (
             <p>
-                {this.state.isLongTxtShown && txt}{!this.state.isLongTxtShown && txt.substring(0,100) + '...'}
+                {this.state.isLongTxtShown && txt}{!this.state.isLongTxtShown && txt.substring(0,max) + '...'}
                 <span onClick={this.toggle} className="show-txt">
                     <u>
                         {this.state.isLongTxtShown && ' show less'}

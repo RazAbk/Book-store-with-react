@@ -2,6 +2,7 @@ const { Link } = ReactRouterDOM
 
 import {bookService} from '../services/BookService.js'
 import {LongTxt} from '../cmps/LongTxt.jsx';
+import {ReviewsPreview} from '../cmps/ReviewsPreview.jsx'
 
 export class BookDetails extends React.Component {
 
@@ -41,7 +42,7 @@ export class BookDetails extends React.Component {
     const language = bookService.getLang(book.language);
 
     return (
-        // <h1>{book.id}</h1>
+        <React.Fragment>
         <div className="book-details">
             <div className="image">
                 <img src={book.thumbnail} />
@@ -53,9 +54,9 @@ export class BookDetails extends React.Component {
                     <h3>{book.subtitle}</h3>
                     <br/>
                     <h4>Written by <i>{book.authors}</i></h4>
-                    <h4>at <i>{book.publishedDate} {dateMsg && `- ${dateMsg}`}</i></h4>
+                    <h4 className="line-under">at <i>{book.publishedDate} {dateMsg && `- ${dateMsg}`}</i></h4>
                     <br/>
-                    <LongTxt txt={book.description}/>
+                    <LongTxt txt={book.description} max={60}/>
                     <br/>
                     <br/>
                     <p>(pages: {book.pageCount} {pagesMsg && `- ${pagesMsg}`})</p>
@@ -67,8 +68,9 @@ export class BookDetails extends React.Component {
                     <h3><span style={{color: priceColor}}>{priceCurrency}</span></h3>
                 </div>
             </div>
-
         </div>
+        <ReviewsPreview reviews={book.reviews}/>
+        </React.Fragment>
     )
     }
 }

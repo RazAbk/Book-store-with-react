@@ -18,7 +18,7 @@ body{
 }
 
 main{
-    min-height: 100vh;
+    min-height: calc(100vh - 6rem);
 }
 
 a{
@@ -227,6 +227,13 @@ main{
     color:rgb(199, 190, 168);
 }
 
+.line-under{
+    border-bottom: rgba(192, 192, 192, 0.13) 1px solid;
+}
+
+.line-under-bold{
+    border-bottom: rgba(59, 59, 59, 0.247) 1px solid;
+}
 
 .details-1 p{
     font-size: 1.3rem;
@@ -263,6 +270,43 @@ main{
 .details-2 h3{
     font-size: 2rem;
 }
+
+/* Reviews */
+
+.reviews{
+    margin-top: 2rem;
+}
+
+.review{
+    display: flex;
+    flex-direction: column;
+
+    height: 7rem;
+    margin-bottom: 1rem;
+    
+
+    background-color: rgb(240, 240, 240);
+    border-radius: 5px;
+}
+
+.review .top-section{
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem;
+}
+
+.review .top-section .top-left,.review .top-section .top-right{
+    display: flex;
+    align-items: center;
+    padding: 0.2rem;
+}
+
+.review .bottom-section{
+    margin: 1rem;
+}
+
+
+
 
 /* Filter */
 
