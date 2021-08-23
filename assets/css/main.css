@@ -48,6 +48,8 @@ main{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
+    align-items: baseline;
+
 }
 
 /* book preview */
@@ -98,7 +100,7 @@ main{
 
 
     color: white;
-    height: calc(75vh - 6rem);
+    height: calc(55vh - 6rem);
 }
 
 .more-details{
@@ -107,19 +109,19 @@ main{
     justify-content: space-between;
 
     width: 100%;
+    min-width: 350px;
 }
 
 .image img{
     border-radius: 5px;
     height: 100%;
+    min-height: 400px;
 }
 
 .image .on-sale{
     position: relative;
-    height: 100%;
     z-index: 100;
-    transform: translate(-81.2%, -35%) scale(0.3);
-    /* transform: translate(-81.2%, -34.9%) scale(0.3); */
+    transform: translate(-30%, -130.9%) scale(0.4);
 }
 
 .details-1{
@@ -177,6 +179,25 @@ main{
     font-size: 2rem;
 }
 
+/* Filter */
+
+.filter-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.book-filter>*{
+    margin: 0.75rem;
+}
+
+.book-filter input{
+    text-align: center;
+    font-size: 1rem;
+    padding: 0.3rem;
+    border-radius: 30px;
+}
 
 
 /* SCROLL BAR */

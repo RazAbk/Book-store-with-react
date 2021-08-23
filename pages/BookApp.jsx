@@ -1,6 +1,6 @@
 import {bookService} from '../services/BookService.js'
 import {BookList} from '../cmps/BookList.jsx'
-import {BookFilter} from  '../cmps/BookFilter.jsx'
+import {BookFilter} from '../cmps/BookFilter.jsx'
 import {BookDetails} from './BookDetails.jsx'
 // import React from 'react'
 
@@ -37,7 +37,7 @@ export class BookApp extends React.Component {
             <section className="books-app">
                 {!selectedBook && (
                     <React.Fragment>
-                        {/* <BookFilter onSetFilter={this.onSetFilter} /> */}
+                        <BookFilter onSetFilter={this.onSetFilter}/>
                         <BookList books={books} onSelectBook={this.onSelectBook} />
                     </React.Fragment>
                 )}
