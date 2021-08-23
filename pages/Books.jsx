@@ -1,10 +1,12 @@
+const { Link } = ReactRouterDOM;
+
 import {bookService} from '../services/BookService.js'
 import {BookList} from '../cmps/BookList.jsx'
 import {BookFilter} from '../cmps/BookFilter.jsx'
 import {BookDetails} from './BookDetails.jsx'
 // import React from 'react'
 
-export class BookApp extends React.Component {
+export class Books extends React.Component {
 
     state = {
         books: [],

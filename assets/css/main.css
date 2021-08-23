@@ -9,6 +9,10 @@ body{
     background-color: rgb(73, 73, 73);
 }
 
+a{
+    text-decoration: none;
+}
+
 /* FONTS */
 
 @font-face{
@@ -19,15 +23,75 @@ body{
 /* HEADER */
 
 header{
-    display: flex;
     background-color: rgb(32, 32, 32);
     height: 6rem;
     color: white;
-    justify-content: flex-start;
-    align-items: center;
-    font-size: 3rem;
-    padding: 2rem;
+}
 
+header h1{
+    font-size: 3rem;
+}
+
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem;
+    height: 100%;
+}
+
+/* Nav */
+
+.header nav a{
+    color:white;
+    text-decoration: none;
+    font-size: 1.2rem;
+    margin: 0.5rem;
+    transition: 0.3s;
+}
+
+.active{
+    color: orange !important;
+}
+
+.my-active{
+    color: orange !important;
+}
+
+.active h1{
+    color: white;
+}
+
+/* HOME PAGE */
+.home{
+    text-align: center;
+}
+.home h1{
+    color: white;
+    font-size: 3rem;
+}
+
+.home p{
+    margin: 2rem;
+    font-size: 2rem;
+}
+
+.home button{
+    padding: 1rem;
+    font-size: 2rem;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: 0.3s;
+    border: none;
+}
+
+.home a{
+    color: black;
+}
+
+.home button:hover{
+    transform: scale(1.1);
+    background-color: rgb(184, 184, 184);    
 }
 
 /* LAYOUT */
