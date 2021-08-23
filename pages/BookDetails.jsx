@@ -1,62 +1,47 @@
+const { Link } = ReactRouterDOM
+
+import {bookService} from '../services/BookService.js'
 import {LongTxt} from '../cmps/LongTxt.jsx';
 
-export function BookDetails({book, onBack}) {
+export class BookDetails extends React.Component {
 
-    // Handle currency symbol
-    let priceCurrency;  
-
-    switch(book.listPrice.currencyCode){
-        case 'ILS':
-            priceCurrency = '₪';
-            break;
-        case 'USD':
-            priceCurrency = '$';
-            break;
-        case 'EUR':
-            priceCurrency = 'Є';
-            break;
-        default:
-            priceCurrency = '';
+    state = {
+        book: null
     }
 
-    // Handle language text
-    let language;
-
-    switch(book.language){
-        case 'he':
-            language = 'Hebrew';
-            break;
-        case 'en':
-            language = 'English';
-            break;
-        case 'sp':
-            language = 'Spanish';
-            break;
-        default:
-            language = '';
+    componentDidMount() {
+        this.loadBook();
+    }
+    
+    componentDidUpdate(prevProps, prevState){
+        if(prevProps.match.params.bookId !== this.state.book.id) {
+            this.loadBook();
+        }
+    }
+    
+    loadBook = () => {
+        const id = this.props.match.params.bookId;
+        bookService.getBookById(id)
+        .then(book => {
+            if(!book) this.props.history.push('/');
+            this.setState({book})
+        })
     }
 
-    // Handle Page count message
-    let pagesMsg = null;
-    if(book.pageCount > 500) pagesMsg = 'Long reading';
-    else if(book.pageCount > 200) pagesMsg = 'Decent reading';
-    else if(book.pageCount < 100) pagesMsg = 'Light reading';
-    
-    // Handle release date message
-    let dateMsg = null;
-    const bookAge = (new Date()).getFullYear() - book.publishedDate;
-    if(bookAge > 10) dateMsg = 'Old book';
-    else if(bookAge < 1) dateMsg = 'New Book';
-    
-    // Handle price color
-    let priceColor = 'white';
-    if(book.listPrice.amount > 150) priceColor = 'red';
-    else if(book.listPrice.amount < 20) priceColor = 'green';
+    render(){
 
-    // Handle if book is on sale image
-    const isOnSale = book.listPrice.isOnSale;
+    const {book} = this.state;
+    if(!book) return <h2>Loading...</h2>;
+    
+    const priceCurrency = bookService.getPriceWSymbol(book.listPrice);
+    const priceColor = bookService.getPriceColor(book.listPrice.amount);
+    const pagesMsg = bookService.getPagesMsg(book.pageCount);
+    const dateMsg = bookService.getDateMsg(book.publishedDate);
+    const isOnSale = bookService.isOnSale(book.listPrice.isOnSale);
+    const language = bookService.getLang(book.language);
 
     return (
+        // <h1>{book.id}</h1>
         <div className="book-details">
             <div className="image">
                 <img src={book.thumbnail} />
@@ -70,7 +55,6 @@ export function BookDetails({book, onBack}) {
                     <h4>Written by <i>{book.authors}</i></h4>
                     <h4>at <i>{book.publishedDate} {dateMsg && `- ${dateMsg}`}</i></h4>
                     <br/>
-                    {/* <p>{book.description}</p> */}
                     <LongTxt txt={book.description}/>
                     <br/>
                     <br/>
@@ -79,12 +63,13 @@ export function BookDetails({book, onBack}) {
                 </div>
                 <div className="details-2">
                     <h3>{language}</h3>
-                    <button onClick={onBack}>Go back</button>
-                    <h3><span style={{color: priceColor}}>{book.listPrice.amount + priceCurrency}</span></h3>
+                    <Link className="go-back" to={'/book'}>Go Back</Link>
+                    <h3><span style={{color: priceColor}}>{priceCurrency}</span></h3>
                 </div>
             </div>
 
         </div>
     )
+    }
 }
 

@@ -6,7 +6,7 @@ import {BookFilter} from '../cmps/BookFilter.jsx'
 import {BookDetails} from './BookDetails.jsx'
 // import React from 'react'
 
-export class Books extends React.Component {
+export class BookApp extends React.Component {
 
     state = {
         books: [],

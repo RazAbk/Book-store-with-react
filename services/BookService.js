@@ -7,12 +7,19 @@ export const bookService = {
     addBook,
     getBookById,
     updateBook,
+    getPriceWSymbol,
+    getLang,
+    getPagesMsg,
+    getDateMsg,
+    isOnSale,
+    getPriceColor
+
 }
 
 const BOOKS_KEY = 'booksDB';
 const gBooks = [
   {
-    "id": "OXeMG8wNskc",
+    "id" : "OXeMG8wNskc",
       "title": "metus hendrerit",
       "subtitle": "mi est eros convallis auctor arcu dapibus himenaeos",
       "authors": [
@@ -34,7 +41,7 @@ const gBooks = [
       }
     },
     {
-      "id": "JYOJa2NpSCq",
+      "id" : "JYOJa2NpSCq",
       "title": "morbi",
       "subtitle": "lorem euismod dictumst inceptos mi",
       "authors": [
@@ -56,7 +63,7 @@ const gBooks = [
       }
     },
     {
-      "id": "1y0Oqts35DQ",
+      "id" : "1y0Oqts35DQ",
       "title": "at viverra venenatis",
       "subtitle": "gravida libero facilisis rhoncus urna etiam",
       "authors": [
@@ -78,7 +85,7 @@ const gBooks = [
       }
     },
     {
-      "id": "kSnfIJyikTP",
+      "id" : "kSnfIJyikTP",
       "title": "dictum",
       "subtitle": "augue eu consectetur class curabitur conubia ligula in ullamcorper",
       "authors": [
@@ -100,7 +107,7 @@ const gBooks = [
       }
     },
     {
-      "id": "f4iuVmbuKCC",
+      "id" : "f4iuVmbuKCC",
       "title": "sem himenaeos aptent",
       "subtitle": "interdum per habitasse luctus purus est",
       "authors": [
@@ -122,7 +129,7 @@ const gBooks = [
       }
     },
     {
-      "id": "U2rfZO6oBZf",
+      "id" : "U2rfZO6oBZf",
       "title": "mi ante posuere",
       "subtitle": "sapien curae consectetur ultrices fringilla blandit ipsum curae faucibus",
       "authors": [
@@ -144,7 +151,7 @@ const gBooks = [
       }
     },
     {
-      "id": "xI0wrXaaAcq",
+      "id" : "xI0wrXaaAcq",
       "title": "non",
       "subtitle": "leo tortor per dapibus mattis ut conubia porttitor ligula viverra",
       "authors": [
@@ -166,7 +173,7 @@ const gBooks = [
       }
     },
     {
-      "id": "9laHCEdSpFy",
+      "id" : "9laHCEdSpFy",
       "title": "tristique",
       "subtitle": "consectetur a eu tincidunt condimentum amet nisi",
       "authors": [
@@ -188,7 +195,7 @@ const gBooks = [
       }
     },
     {
-      "id": "nGhVwZvGCGp",
+      "id" : "nGhVwZvGCGp",
       "title": "urna ornare gravida",
       "subtitle": "sem vestibulum semper convallis pharetra tempor himenaeos ut",
       "authors": [
@@ -210,7 +217,7 @@ const gBooks = [
       }
     },
     {
-      "id": "Q8Q9Lsd03BD",
+      "id" : "Q8Q9Lsd03BD",
       "title": "consequat neque volutpat",
       "subtitle": "vel quis taciti fermentum feugiat ullamcorper curae praesent",
       "authors": [
@@ -232,7 +239,7 @@ const gBooks = [
       }
     },
     {
-      "id": "bd7a76kARao",
+      "id" : "bd7a76kARao",
       "title": "risus",
       "subtitle": "pretium bibendum pharetra curabitur quisque dictumst",
       "authors": [
@@ -254,7 +261,7 @@ const gBooks = [
       }
     },
     {
-      "id": "qKyG0vqeO3e",
+      "id" : "qKyG0vqeO3e",
       "title": "interdum etiam vulputate",
       "subtitle": "velit sapien eget tincidunt nunc tortor",
       "authors": [
@@ -276,7 +283,7 @@ const gBooks = [
       }
     },
     {
-      "id": "2RvT48ZNInj",
+      "id" : "2RvT48ZNInj",
       "title": "sagittis justo",
       "subtitle": "etiam primis proin praesent placerat nisi fermentum nisi",
       "authors": [
@@ -298,7 +305,7 @@ const gBooks = [
       }
     },
     {
-      "id": "5z2s9pDXAYj",
+      "id" : "5z2s9pDXAYj",
       "title": "quam ullamcorper himenaeos",
       "subtitle": "ut placerat eu dapibus sapien sodales laoreet",
       "authors": [
@@ -320,7 +327,7 @@ const gBooks = [
       }
     },
     {
-      "id": "zBZu5cDEWha",
+      "id" : "zBZu5cDEWha",
       "title": "quis",
       "subtitle": "suscipit turpis etiam turpis libero lobortis",
       "authors": [
@@ -342,7 +349,7 @@ const gBooks = [
       }
     },
     {
-      "id": "aOI7tQuPZ2f",
+      "id" : "aOI7tQuPZ2f",
       "title": "aliquam aliquet dapibus",
       "subtitle": "neque eu purus euismod placerat adipiscing odio egestas consequat",
       "authors": [
@@ -364,7 +371,7 @@ const gBooks = [
       }
     },
     {
-      "id": "WBooB82Uvwu",
+      "id" : "WBooB82Uvwu",
       "title": "class",
       "subtitle": "elit enim ultricies amet imperdiet a molestie class elementum venenatis",
       "authors": [
@@ -386,7 +393,7 @@ const gBooks = [
       }
     },
     {
-      "id": "xm1z5bbZjlS",
+      "id" : "xm1z5bbZjlS",
       "title": "vitae",
       "subtitle": "class habitant at commodo semper ligula a bibendum",
       "authors": [
@@ -408,7 +415,7 @@ const gBooks = [
       }
     },
     {
-      "id": "u3j6QIKLlJb",
+      "id" : "u3j6QIKLlJb",
       "title": "rhoncus vivamus",
       "subtitle": "nullam class risus amet senectus scelerisque etiam curabitur",
       "authors": [
@@ -430,7 +437,7 @@ const gBooks = [
       }
     },
     {
-      "id": "vxYYYdVlEH3",
+      "id" : "vxYYYdVlEH3",
       "title": "donec mi ullamcorper",
       "subtitle": "varius malesuada augue molestie sollicitudin faucibus mi eu tempus",
       "authors": [
@@ -478,7 +485,10 @@ function addBook(){
 }
 
 function getBookById(bookId){
-
+  var book = gBooks.find(book => {
+    return bookId === book.id
+  })
+  return Promise.resolve(book)
 }
 
 function updateBook(){
@@ -487,4 +497,73 @@ function updateBook(){
 
 function _saveBookToStorage(){
     storageService.saveToStorage(BOOKS_KEY, gBooks);
+}
+
+function getPriceWSymbol(listPrice){
+  let priceCurrency;  
+
+    switch(listPrice.currencyCode){
+        case 'ILS':
+            priceCurrency = '₪';
+            break;
+        case 'USD':
+            priceCurrency = '$';
+            break;
+        case 'EUR':
+            priceCurrency = 'Є';
+            break;
+        default:
+            priceCurrency = '';
+    }
+
+    return listPrice.amount + priceCurrency;
+}
+
+function getLang(shortSymbol){
+
+  let language;
+    switch(shortSymbol){
+      case 'he':
+          language = 'Hebrew';
+          break;
+      case 'en':
+          language = 'English';
+          break;
+      case 'sp':
+          language = 'Spanish';
+          break;
+      default:
+          language = '';
+  }
+return language;
+}
+
+function getPagesMsg(pageCount){
+  let pagesMsg;
+  if(pageCount > 500) pagesMsg = 'Long reading';
+  else if(pageCount > 200) pagesMsg = 'Decent reading';
+  else if(pageCount < 100) pagesMsg = 'Light reading';
+
+  return pagesMsg;
+}
+
+function getDateMsg(publishedDate){
+  let dateMsg;
+  const bookAge = (new Date()).getFullYear() - publishedDate;
+    if(bookAge > 10) dateMsg = 'Old book';
+    else if(bookAge < 1) dateMsg = 'New Book';
+    
+    return dateMsg;
+}
+
+function isOnSale(isOnSale){
+  return isOnSale;
+}
+
+function getPriceColor(price){
+  let priceColor = 'white';
+  if(price > 150) priceColor = 'red';
+  else if(price < 20) priceColor = 'green';
+
+  return priceColor;
 }

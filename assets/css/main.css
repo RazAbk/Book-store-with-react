@@ -224,7 +224,9 @@ main{
     padding: 0 2rem;
 }
 
-.details-2 button{
+.details-2 .go-back{
+    color:black;
+    background-color: #fff;
     border-radius: 20px;
     border: none;
     padding: 1.2rem;
@@ -234,7 +236,7 @@ main{
     cursor: pointer;
 }
 
-.details-2 button:hover{
+.details-2 .go-back:hover{
     transform: scale(1.1);
     background-color: rgb(184, 184, 184);    
 }
