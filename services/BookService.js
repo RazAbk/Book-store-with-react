@@ -13,10 +13,12 @@ export const bookService = {
   getDateMsg,
   isOnSale,
   getPriceColor,
+  AddReview,
+  deleteReview
 };
 
 const BOOKS_KEY = "booksDB";
-const gBooks = [
+const gBooks = storageService.loadFromStorage(BOOKS_KEY) || [
   {
     id: "OXeMG8wNskc",
     title: "metus hendrerit",
@@ -36,21 +38,21 @@ const gBooks = [
     },
     reviews: [
       {
-        userId: utilService.makeId(3),
+        reviewId: utilService.makeId(3),
         title: 'Great Book!',
         description: 'Best book i\'ve ever read! I would recommend it to anyone, at any age, and every level!',
         rating: 3,
         date: 1356963552
       },
       {
-        userId: utilService.makeId(3),
+        reviewId: utilService.makeId(3),
         title: 'Amazing Book!',
         description: 'Best book i\'ve ever read! I would recommend it to anyone, at any age, and every level! longgggggggggggggggggggggggggggggg texxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxttttttttttttttttttttttt realllyyyyy longggggggggggggggggggggggggggggg Best book i\'ve ever read! I would recommend it to anyone, at any age, and every level! longgggggggggggggggggggggggggggggg texxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxttttttttttttttttttttttt realllyyyyy longggggggggggggggggggggggggggggg',
         rating: 5,
         date: 1356963552
       },
       {
-        userId: utilService.makeId(3),
+        reviewId: utilService.makeId(3),
         title: 'Awsome Book!',
         description: 'Best book i\'ve ever read! I would recommend it to anyone, at any age, and every level!',
         rating: 4,
@@ -77,7 +79,7 @@ const gBooks = [
     },
     reviews: [
       {
-        userId: utilService.makeId(3),
+        reviewId: utilService.makeId(3),
         title: 'Great Book!',
         description: 'Best book i\'ve ever read! I would recommend it to anyone, at any age, and every level!',
         rating: 3,
@@ -104,7 +106,7 @@ const gBooks = [
     },
     reviews: [
       {
-        userId: utilService.makeId(3),
+        reviewId: utilService.makeId(3),
         title: 'Great Book!',
         description: 'Best book i\'ve ever read! I would recommend it to anyone, at any age, and every level!',
         rating: 3,
@@ -132,7 +134,7 @@ const gBooks = [
     },
     reviews: [
       {
-        userId: utilService.makeId(3),
+        reviewId: utilService.makeId(3),
         title: 'Great Book!',
         description: 'Best book i\'ve ever read! I would recommend it to anyone, at any age, and every level!',
         rating: 3,
@@ -159,7 +161,7 @@ const gBooks = [
     },
     reviews: [
       {
-        userId: utilService.makeId(3),
+        reviewId: utilService.makeId(3),
         title: 'Great Book!',
         description: 'Best book i\'ve ever read! I would recommend it to anyone, at any age, and every level!',
         rating: 3,
@@ -187,7 +189,7 @@ const gBooks = [
     },
     reviews: [
       {
-        userId: utilService.makeId(3),
+        reviewId: utilService.makeId(3),
         title: 'Great Book!',
         description: 'Best book i\'ve ever read! I would recommend it to anyone, at any age, and every level!',
         rating: 3,
@@ -215,7 +217,7 @@ const gBooks = [
     },
     reviews: [
       {
-        userId: utilService.makeId(3),
+        reviewId: utilService.makeId(3),
         title: 'Great Book!',
         description: 'Best book i\'ve ever read! I would recommend it to anyone, at any age, and every level!',
         rating: 3,
@@ -242,7 +244,7 @@ const gBooks = [
     },
     reviews: [
       {
-        userId: utilService.makeId(3),
+        reviewId: utilService.makeId(3),
         title: 'Great Book!',
         description: 'Best book i\'ve ever read! I would recommend it to anyone, at any age, and every level!',
         rating: 3,
@@ -269,7 +271,7 @@ const gBooks = [
     },
     reviews: [
       {
-        userId: utilService.makeId(3),
+        reviewId: utilService.makeId(3),
         title: 'Great Book!',
         description: 'Best book i\'ve ever read! I would recommend it to anyone, at any age, and every level!',
         rating: 3,
@@ -296,7 +298,7 @@ const gBooks = [
     },
     reviews: [
       {
-        userId: utilService.makeId(3),
+        reviewId: utilService.makeId(3),
         title: 'Great Book!',
         description: 'Best book i\'ve ever read! I would recommend it to anyone, at any age, and every level!',
         rating: 3,
@@ -323,7 +325,7 @@ const gBooks = [
     },
     reviews: [
       {
-        userId: utilService.makeId(3),
+        reviewId: utilService.makeId(3),
         title: 'Great Book!',
         description: 'Best book i\'ve ever read! I would recommend it to anyone, at any age, and every level!',
         rating: 3,
@@ -350,7 +352,7 @@ const gBooks = [
     },
     reviews: [
       {
-        userId: utilService.makeId(3),
+        reviewId: utilService.makeId(3),
         title: 'Great Book!',
         description: 'Best book i\'ve ever read! I would recommend it to anyone, at any age, and every level!',
         rating: 3,
@@ -377,7 +379,7 @@ const gBooks = [
     },
     reviews: [
       {
-        userId: utilService.makeId(3),
+        reviewId: utilService.makeId(3),
         title: 'Great Book!',
         description: 'Best book i\'ve ever read! I would recommend it to anyone, at any age, and every level!',
         rating: 3,
@@ -404,7 +406,7 @@ const gBooks = [
     },
     reviews: [
       {
-        userId: utilService.makeId(3),
+        reviewId: utilService.makeId(3),
         title: 'Great Book!',
         description: 'Best book i\'ve ever read! I would recommend it to anyone, at any age, and every level!',
         rating: 3,
@@ -431,7 +433,7 @@ const gBooks = [
     },
     reviews: [
       {
-        userId: utilService.makeId(3),
+        reviewId: utilService.makeId(3),
         title: 'Great Book!',
         description: 'Best book i\'ve ever read! I would recommend it to anyone, at any age, and every level!',
         rating: 3,
@@ -459,7 +461,7 @@ const gBooks = [
     },
     reviews: [
       {
-        userId: utilService.makeId(3),
+        reviewId: utilService.makeId(3),
         title: 'Great Book!',
         description: 'Best book i\'ve ever read! I would recommend it to anyone, at any age, and every level!',
         rating: 3,
@@ -487,7 +489,7 @@ const gBooks = [
     },
     reviews: [
       {
-        userId: utilService.makeId(3),
+        reviewId: utilService.makeId(3),
         title: 'Great Book!',
         description: 'Best book i\'ve ever read! I would recommend it to anyone, at any age, and every level!',
         rating: 3,
@@ -514,7 +516,7 @@ const gBooks = [
     },
     reviews: [
       {
-        userId: utilService.makeId(3),
+        reviewId: utilService.makeId(3),
         title: 'Great Book!',
         description: 'Best book i\'ve ever read! I would recommend it to anyone, at any age, and every level!',
         rating: 3,
@@ -541,7 +543,7 @@ const gBooks = [
     },
     reviews: [
       {
-        userId: utilService.makeId(3),
+        reviewId: utilService.makeId(3),
         title: 'Great Book!',
         description: 'Best book i\'ve ever read! I would recommend it to anyone, at any age, and every level!',
         rating: 3,
@@ -569,7 +571,7 @@ const gBooks = [
     },
     reviews: [
       {
-        userId: utilService.makeId(3),
+        reviewId: utilService.makeId(3),
         title: 'Great Book!',
         description: 'Best book i\'ve ever read! I would recommend it to anyone, at any age, and every level!',
         rating: 3,
@@ -685,4 +687,37 @@ function getPriceColor(price) {
   else if (price < 20) priceColor = "green";
 
   return priceColor;
+}
+
+
+function AddReview(review, bookId){
+  review.reviewId = utilService.makeId(3);
+
+  const bookIdx = gBooks.findIndex((book) => {
+    return bookId === book.id;
+  });
+
+  gBooks[bookIdx].reviews.unshift(review);
+  _saveBookToStorage();
+}
+
+function deleteReview(reviewId){
+  let reviewIdx;
+  const bookIdx = gBooks.findIndex( book => {
+    reviewIdx = book.reviews.findIndex( review => {
+      return review.reviewId === reviewId;
+    })
+
+    if(reviewIdx !== -1) return true;
+    return false;
+  })
+
+  if(bookIdx >= 0 && reviewIdx >= 0){
+    gBooks[bookIdx].reviews.splice(reviewIdx,1);
+    console.log('review deleted')
+    _saveBookToStorage();
+    return true;
+  }
+  return false;
+
 }

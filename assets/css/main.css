@@ -1,3 +1,6 @@
+@import url('/assets/fonts/fontello.css');
+@import url('/assets/fonts/animation.css');
+
 *{
 box-sizing: border-box;
 padding: 0;
@@ -31,6 +34,8 @@ a{
     font-family: dosis;
     src: url('../fonts/Dosis-VariableFont_wght.ttf');
 }
+
+
 
 /* HEADER */
 
@@ -209,6 +214,7 @@ main{
 
 .details-1{
     padding: 0 1rem;
+    position:relative;
 }
 
 .details-1>*{
@@ -305,6 +311,63 @@ main{
     margin: 1rem;
 }
 
+/* Add review */
+
+.add-review-btn{
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: black;
+    background-color: rgb(211, 211, 211);
+    padding: 0.5rem;
+    border-radius: 5rem;
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.add-review-btn:hover{
+    transform: scale(1.2);
+    background-color: rgb(184, 184, 184);   
+}
+
+
+.add-review-modal{
+    position: fixed;
+    background-color: rgb(194, 194, 194);
+    width: 500px;
+    height: 500px;
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+    border-radius: 20px;
+
+    transition: 0.5s;
+}
+
+.add-review-modal h2{
+    text-align: center;
+}
+
+.add-review-form{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    color:black;
+}
+
+.add-review-form input{
+    margin-bottom: 2rem;
+    height: 2.5rem;
+    border-radius: 5px;
+}
+
+.add-review-form button{
+    height: 2.5rem;
+    font-size: 1.5rem;
+    border-radius: 20px;
+}
 
 
 

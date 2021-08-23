@@ -3,11 +3,13 @@ const { Link } = ReactRouterDOM
 import {bookService} from '../services/BookService.js'
 import {LongTxt} from '../cmps/LongTxt.jsx';
 import {ReviewsPreview} from '../cmps/ReviewsPreview.jsx'
+import {AddReview} from '../cmps/AddReview.jsx'
 
 export class BookDetails extends React.Component {
 
     state = {
-        book: null
+        book: null,
+        isReviewEditOpen: false
     }
 
     componentDidMount() {
@@ -27,6 +29,11 @@ export class BookDetails extends React.Component {
             if(!book) this.props.history.push('/');
             this.setState({book})
         })
+    }
+
+    openModal = () => {
+        this.setState({isReviewEditOpen: !this.state.isReviewEditOpen});
+        this.loadBook();
     }
 
     render(){
@@ -60,7 +67,8 @@ export class BookDetails extends React.Component {
                     <br/>
                     <br/>
                     <p>(pages: {book.pageCount} {pagesMsg && `- ${pagesMsg}`})</p>
-
+                    <button className="add-review-btn" onClick={this.openModal}>Add review</button>
+                        <AddReview isOpen={this.state.isReviewEditOpen} closeModal={this.openModal} bookId={book.id}/>
                 </div>
                 <div className="details-2">
                     <h3>{language}</h3>
