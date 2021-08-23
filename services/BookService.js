@@ -462,9 +462,9 @@ function query(filterBy){
       minPrice = minPrice ? minPrice : 0;
       
       const booksToShow = gBooks.filter(book => book.title.includes(name) && book.listPrice.amount >= minPrice && book.listPrice.amount <= maxPrice)
-      return booksToShow;
+      return Promise.resolve(booksToShow);
     } else{
-      return gBooks;
+      return Promise.resolve(gBooks);
     }
 }
 
