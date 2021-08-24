@@ -5,7 +5,7 @@ export const searchBookService = {
     getBookSearchResults
 }
 
-const API_KEY = `_NOPE_`;
+const API_KEY = `_Nope_`;
 const SEARCHES_KEY = 'bookSearchesDB'
 const gSearches = storageService.loadFromStorage(SEARCHES_KEY) || [];
 
