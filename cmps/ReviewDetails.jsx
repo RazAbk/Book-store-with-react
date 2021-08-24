@@ -3,7 +3,7 @@ import { bookService } from "../services/BookService.js";
 import { LongTxt } from "./LongTxt.jsx"
 import { RatingStars } from "./RatingStars.jsx";
 
-export function ReviewsDetails({review}) {
+export function ReviewsDetails({review, reloadReviews}) {
 
     const {reviewId, title, description, rating, date} = review;
 
@@ -12,7 +12,8 @@ export function ReviewsDetails({review}) {
     const onDeleteReview = () =>{
         const isDeleteSuccess = bookService.deleteReview(reviewId);
         if(isDeleteSuccess){
-            location.reload();
+            reloadReviews();
+            // location.reload();
         }
     }
 

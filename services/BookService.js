@@ -714,7 +714,6 @@ function deleteReview(reviewId){
 
   if(bookIdx >= 0 && reviewIdx >= 0){
     gBooks[bookIdx].reviews.splice(reviewIdx,1);
-    console.log('review deleted')
     _saveBookToStorage();
     return true;
   }

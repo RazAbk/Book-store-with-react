@@ -80,7 +80,7 @@ export class BookDetails extends React.Component {
                 </div>
             </div>
         </div>
-        <ReviewsPreview reviews={book.reviews}/>
+        <ReviewsPreview reviews={book.reviews} reloadReviews={this.loadBook}/>
         </React.Fragment>
     )
     }
