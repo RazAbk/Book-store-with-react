@@ -606,7 +606,34 @@ function deleteBook(bookId) {
   _saveBookToStorage();
 }
 
-function addBook() {}
+function addBook(rawBook) {
+  const newBook = _convertGoogleBook(rawBook);
+  gBooks.unshift(newBook);
+  _saveBookToStorage();
+}
+
+function _convertGoogleBook(rawBook){
+  return {
+    id: rawBook.id,
+    title: rawBook.volumeInfo.title || '',
+    subtitle: rawBook.volumeInfo.title || '',
+    authors: rawBook.volumeInfo.authors || '',
+    publishedDate: +rawBook.volumeInfo.publishedDate,
+    description: rawBook.volumeInfo.description || '',
+    pageCount: rawBook.volumeInfo.pageCount || '',
+    categories: rawBook.volumeInfo.categories || '',
+    thumbnail: rawBook.volumeInfo.imageLinks.thumbnail || '',
+    language: rawBook.volumeInfo.language,
+    listPrice: {
+      amount: utilService.getRandomIntInclusive(10,150),
+      currencyCode: "ILS",
+      isOnSale: false,
+    },
+    reviews: []
+  }
+}
+
+function updateBook() {}
 
 function getBookById(bookId) {
   var book = gBooks.find((book) => {
@@ -614,8 +641,6 @@ function getBookById(bookId) {
   });
   return Promise.resolve(book);
 }
-
-function updateBook() {}
 
 function _saveBookToStorage() {
   storageService.saveToStorage(BOOKS_KEY, gBooks);
