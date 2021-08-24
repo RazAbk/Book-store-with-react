@@ -403,6 +403,55 @@ main{
     border-radius: 30px;
 }
 
+/* Add Book */
+
+.books-app{
+    position: relative;
+}
+
+.search-book-btn{
+    background-color: rgb(211, 211, 211);
+    position: absolute;
+    top:0;
+    right:0;
+    padding: 0.5rem;
+    border-radius: 20px;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.search-book-btn:hover{
+    transform: scale(1.2);
+    background-color: rgb(184, 184, 184)
+}
+
+.book-add-modal{
+    background-color: rgb(194, 194, 194);
+    color:white;
+    text-align: center;
+    position: fixed;
+    z-index: 500;
+
+    font-size: 1.5rem;
+    padding-top: 0.5rem;
+
+    width: 500px;
+    min-height: 500px;
+    border-radius: 20px;
+
+
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+
+}
+
+.book-add-modal input{
+    height: 2.5rem;
+    width: 80%;
+    border-radius: 5px;
+    margin-top: 0.5rem;
+}
 
 /* SCROLL BAR */
 
@@ -437,6 +486,7 @@ main{
   .screen{
       filter:opacity(0);
       pointer-events: none;
+      cursor: pointer;
 
       position:fixed;
       background: rgba(46, 46, 46, 0.808);

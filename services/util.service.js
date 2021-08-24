@@ -2,7 +2,8 @@ export const utilService = {
     makeId,
     makeLorem,
     getRandomIntInclusive,
-    getFormatedDateString
+    getFormatedDateString,
+    debounce
 }
 
 function makeId(length = 6) {
@@ -40,3 +41,11 @@ function getFormatedDateString(date){
     return `
     ${(day < 10) ? '0' + day : day}/${(month < 10) ? '0' + month : month}/${year}`;
 }
+
+function debounce(func, timeout = 300){
+    let timer;
+    return (...args) => {
+      clearTimeout(timer);
+      timer = setTimeout(() => { func.apply(this, args); }, timeout);
+    };
+  }
