@@ -4,9 +4,9 @@ export function RatingStars({rating}){
 
     for(let i = 1; i <= 5; i++){
         if(i <= rating){
-            ratingToDisplay.push(<i class="fas fa-star full-star"></i>)
+            ratingToDisplay.push(<i key={i} className="fas fa-star full-star"></i>)
         } else{ 
-            ratingToDisplay.push(<i class="far fa-star"></i>)
+            ratingToDisplay.push(<i key={i} className="far fa-star"></i>)
         }
     }
 

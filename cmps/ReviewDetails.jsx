@@ -1,13 +1,13 @@
-import { bookService } from "../services/BookService";
-import { LongTxt } from "./LongTxt"
+import { utilService } from "../services/util.service.js";
+import { bookService } from "../services/BookService.js";
+import { LongTxt } from "./LongTxt.jsx"
 import { RatingStars } from "./RatingStars.jsx";
 
 export function ReviewsDetails({review}) {
 
     const {reviewId, title, description, rating, date} = review;
 
-    let formatedDate = new Date(date * 1000);
-    formatedDate = `${formatedDate.getDay()}/${formatedDate.getMonth() + 1}/${formatedDate.getFullYear()}`;
+    const formatedDateString = utilService.getFormatedDateString(new Date(date));
 
     const onDeleteReview = () =>{
         const isDeleteSuccess = bookService.deleteReview(reviewId);
@@ -22,10 +22,10 @@ export function ReviewsDetails({review}) {
             <div className="top-section line-under-bold">
                 <div className="top-left">
                     <h3>{title}</h3>
-                    <RatingStars rating={rating}/>
+                    <RatingStars key={reviewId} rating={rating}/>
                 </div>
                 <div className="top-right">
-                    <h3>{formatedDate}</h3>
+                    <h3>{formatedDateString}</h3>
                     <i onClick={onDeleteReview} className="delete-review">x</i>
                 </div>
             </div>

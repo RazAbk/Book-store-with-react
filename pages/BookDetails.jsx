@@ -4,6 +4,7 @@ import {bookService} from '../services/BookService.js'
 import {LongTxt} from '../cmps/LongTxt.jsx';
 import {ReviewsPreview} from '../cmps/ReviewsPreview.jsx'
 import {AddReview} from '../cmps/AddReview.jsx'
+import { Screen } from '../cmps/Screen.jsx';
 
 export class BookDetails extends React.Component {
 
@@ -31,7 +32,7 @@ export class BookDetails extends React.Component {
         })
     }
 
-    openModal = () => {
+    toggleModal = () => {
         this.setState({isReviewEditOpen: !this.state.isReviewEditOpen});
         this.loadBook();
     }
@@ -50,6 +51,7 @@ export class BookDetails extends React.Component {
 
     return (
         <React.Fragment>
+        <Screen isOpen={this.state.isReviewEditOpen} closeModal={this.toggleModal} />
         <div className="book-details">
             <div className="image">
                 <img src={book.thumbnail} />
@@ -67,8 +69,9 @@ export class BookDetails extends React.Component {
                     <br/>
                     <br/>
                     <p>(pages: {book.pageCount} {pagesMsg && `- ${pagesMsg}`})</p>
-                    <button className="add-review-btn" onClick={this.openModal}>Add review</button>
-                        <AddReview isOpen={this.state.isReviewEditOpen} closeModal={this.openModal} bookId={book.id}/>
+                    <button className="add-review-btn" onClick={this.toggleModal}>Add review</button>
+                        <AddReview isOpen={this.state.isReviewEditOpen} closeModal={this.toggleModal} bookId={book.id}/>
+                        
                 </div>
                 <div className="details-2">
                     <h3>{language}</h3>

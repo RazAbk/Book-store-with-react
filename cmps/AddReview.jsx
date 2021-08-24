@@ -5,7 +5,7 @@ export class AddReview extends React.Component {
         review: {
             title: '',
             description: '',
-            date: '',
+            date: new Date().getTime(),
             rating: ''
         }
     }
@@ -18,9 +18,6 @@ export class AddReview extends React.Component {
                 value = +target.value;
                 break;
             case 'text':
-                value = target.value;
-                break;
-            case 'date':
                 value = target.value;
                 break;
         }
@@ -60,8 +57,6 @@ export class AddReview extends React.Component {
                                 <label htmlFor="rating" >rating</label>
                                 <input type="number" name="rating" id="rating" value={rating} onChange={this.handleChange} />  
 
-                                <label htmlFor="date" >date</label>
-                                <input type="date" name="date" id="date" value={date} onChange={this.handleChange} />  
                                 <button>Add Review</button>
                             </form>
                     </div>
