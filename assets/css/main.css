@@ -435,7 +435,7 @@ main{
   /* Screen */
 
   .screen{
-      transform: scale(0);
+      filter:opacity(0);
       pointer-events: none;
 
       position:fixed;
@@ -446,10 +446,10 @@ main{
       height: 100vh;
       z-index: 200;
 
-      /* transition: 0.5s; */
+      transition: 0.3s;
   }
 
   .screen-on{
-    transform: scale(1);
+    filter:opacity(1);
     pointer-events:visible;
   }

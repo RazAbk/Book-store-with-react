@@ -65,7 +65,7 @@ export class AddReview extends React.Component {
                             </form>
                     </div>
                 }
-                {!isOpen && <span></span>}
+                {!isOpen && <React.Fragment></React.Fragment>}
             </React.Fragment>
         )
     }

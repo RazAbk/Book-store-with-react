@@ -13,6 +13,10 @@ export class LongTxt extends React.Component{
         const txt = this.props.txt
         const max = this.props.max
 
+        if(txt.length < max){
+            return (<p>{txt}</p>)
+        }
+
         return (
             <p>
                 {this.state.isLongTxtShown && txt}{!this.state.isLongTxtShown && txt.substring(0,max) + '...'}
