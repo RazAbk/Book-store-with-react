@@ -16,6 +16,8 @@ export class AddReview extends React.Component {
         switch(target.type){
             case 'number':
                 value = +target.value;
+                if(value > 5) value = 5;
+                if(value < 0) value = 0;
                 break;
             case 'text':
                 value = target.value;
@@ -29,6 +31,8 @@ export class AddReview extends React.Component {
         ev.preventDefault();
         const {bookId} = this.props;
         bookService.AddReview(this.state.review, bookId);
+
+        this.setState({review: {title:'', description: '', date: new Date().getTime(), rating:''}})
 
         this.props.closeModal();
     }
