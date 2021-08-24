@@ -1,23 +1,8 @@
-@import url('/assets/fonts/fontello.css');
-@import url('/assets/fonts/animation.css');
-
 *{
 box-sizing: border-box;
 padding: 0;
 margin: 0;
 font-family: dosis;
-}
-
-html{
-
-}
-
-body{
-
-}
-
-#root{
-
 }
 
 main{
@@ -309,6 +294,16 @@ main{
 
 .review .bottom-section{
     margin: 1rem;
+}
+
+/* Rating */
+
+.stars{
+    margin-left: 0.5rem;
+}
+
+.full-star{
+    color:rgb(83, 83, 83);
 }
 
 /* Add review */

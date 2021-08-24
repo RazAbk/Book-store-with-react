@@ -1,5 +1,6 @@
 import { bookService } from "../services/BookService";
 import { LongTxt } from "./LongTxt"
+import { RatingStars } from "./RatingStars.jsx";
 
 export function ReviewsDetails({review}) {
 
@@ -21,8 +22,7 @@ export function ReviewsDetails({review}) {
             <div className="top-section line-under-bold">
                 <div className="top-left">
                     <h3>{title}</h3>
-                    <h2>{rating}</h2>
-                    {/* <i className="icon-star-empty"></i> */}
+                    <RatingStars rating={rating}/>
                 </div>
                 <div className="top-right">
                     <h3>{formatedDate}</h3>
